@@ -1,0 +1,30 @@
+if game.PlaceId == 14656843302 then
+ 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | Math Block Race", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.win = true
+
+function win()
+      while _G.win == true do
+        game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer("Claim",5) 
+        wait(0.000000000000000001)
+    end
+end
+
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+MainTab:AddToggle({
+	Name = "Auto Trophy",
+	Default = false,
+	Callback = function(Value)
+		_G.win = Value
+        win()
+	end    
+})
+
+end
